@@ -1,0 +1,11 @@
+﻿1.问题：快速搭建SpringBoot Web项目后,启动中断！
+解决：删除pom.xml中
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+2.在接口上对角色认证时，注意要加前缀。@PreAuthorize("hasRole('ROLE_ADMIN')")
+RoleVoter类中默认前缀 private String rolePrefix = "ROLE_";
+如果要使其权限接口生效，还得开启：@EnableGlobalMethodSecurity(prePostEnabled = true)
