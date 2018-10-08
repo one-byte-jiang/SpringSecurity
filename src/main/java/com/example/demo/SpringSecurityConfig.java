@@ -40,6 +40,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
        // auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN");//基于内存存储数据
         //auth.inMemoryAuthentication().withUser("lisi").password("lisi").roles("USER");
 
-        auth.userDetailsService(myUserService);//交给自定义的数据库用户管理
+        auth.userDetailsService(myUserService).passwordEncoder(new MyPasswordEncoder());//交给自定义的数据库用户管理
     }
 }
